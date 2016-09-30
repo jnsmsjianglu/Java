@@ -6,7 +6,7 @@ public  class  Customer
 	private String phoneNo;
 	//private Boat boat;//在Customer中加入boat类的一个量；
     //Vector customers = new Vector();
-	static Vector customers;
+	static Vector customers = new Vector();
 	public String getName()
 	{
 		return name;
@@ -48,7 +48,7 @@ public  class  Customer
 	
 	public Customer(String aName,String anAddress,String aPhoneNo)//函数方法1；
     {	
-		customers = new Vector();
+		//customers = new Vector();
 		setName(aName);
 		setAddress(anAddress);
 		setPhoneNo(aPhoneNo);
@@ -78,12 +78,15 @@ public  class  Customer
 
 	public static void initialize()
 	{
-		//customers = new Vector();
+		//customers = new Vector(10);
 		Customer aCustomer;
 		aCustomer = new Customer("姜路","南京","15996367250");
 		aCustomer = new Customer("张英珠","南京","15895952213");
 		aCustomer = new Customer("姜映舟","桂林","13270803603");
 		aCustomer = new Customer("李喆","南京","15195895896");
+       //customers.add(new Customer("姜路","南京","15996367250"));
+	   //customers.add(new Customer("张英珠","南京","15895952213"));
+
 	}
 
 	public  static Vector getAll()

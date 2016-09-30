@@ -34,6 +34,7 @@ public class FindCustomer extends JFrame implements ActionListener
 
 		//this.createCustomers();//´´½¨JList£»
 		//new :
+		gettCustomers = new Vector();
 		gettCustomers = Customer.getAll();
 		customerNames = new Vector();
 		for (int i = 0;i < gettCustomers.size() ;i++ )
