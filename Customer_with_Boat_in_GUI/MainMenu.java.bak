@@ -93,7 +93,7 @@ public class MainMenu extends JFrame implements ActionListener
 	{
 		System.out.println("addCustomer...");
 		this.setVisible(false);
-		AddCustomerAndABoat addCustomerFrame = new AddCustomerAndABoat(this);
+		AddCustomerAndABoat addCustomerFrame = new AddCustomer(this);
 		addCustomerFrame.setSize(320,200);
 		addCustomerFrame.setTitle("Add A Customer");
 		addCustomerFrame.setVisible(true);

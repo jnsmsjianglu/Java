@@ -232,7 +232,6 @@ public class AddBoat extends JFrame implements ActionListener
 				fuelType = "diesel";
 			}
 			PowerBoat aPowerBoat = new PowerBoat(aStateRegistrationNo,aBoatLength,aManufacturer,aYear,numberOfengines,fuelType);
-			Boat.assignBoatToCustomer(newCustomer);
 			JOptionPane.showMessageDialog(this,"Powerboat is Added!");
 			clearForm();
 		}

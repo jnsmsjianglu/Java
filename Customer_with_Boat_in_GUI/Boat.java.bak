@@ -15,7 +15,6 @@ public class Boat
 		setLength(aLength);
 		setManufacturer(aManufacturer);
 		setYear(aYear);
-		setCustomer(null);
 		boats.add(this);
 		//assignBoatToCustomer(customer);//后面的方法进行了重写;
 		//boats.add(this)

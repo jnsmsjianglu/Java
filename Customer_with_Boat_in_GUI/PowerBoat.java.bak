@@ -1,4 +1,4 @@
-//public class PowerBoat extends Boat //ฦ๛องฃป
+public class PowerBoat extends Boat //ฦ๛องฃป
 public class PowerBoat extends Boat //ฦ๛องฃป
 {
 	private int noEngines;

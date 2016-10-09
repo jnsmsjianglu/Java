@@ -83,8 +83,8 @@ public  class  Customer
 		aCustomer = new Customer("张英珠","南京","15895952213");
 		aCustomer = new Customer("姜映舟","桂林","13270803603");
 		aCustomer = new Customer("李喆","南京","15195895896");
-		aCustomer = new Customer("Jhon","Losgines","15996367250");
-		aCustomer = new Customer("Zhnbg","Texas","15895952213");
+		aCustomer = new Customer("姜路","南京","15996367250");
+		aCustomer = new Customer("张英珠","南京","15895952213");
         Boat.initialize(customers);
 
 	}
