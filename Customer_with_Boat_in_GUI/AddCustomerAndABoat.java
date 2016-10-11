@@ -9,10 +9,10 @@ class AddCustomerAndABoat extends JFrame implements ActionListener
 	}*/
     
 	JTextField customerNameText,customerAddressText,customerPhoneText;
-	JButton addButton,clearButton,closeButton;
+	JButton addBoatButton,resetButton,closeButton;
 	Customer aCustomer;
 	String customerName,customerAddress,customerPhoneNo;
-	MainMenu parentMenu;
+	MainMenu parentMenu;//用来返回MainMenu;
 	
 	public AddCustomerAndABoat(MainMenu menu)
 	{   
@@ -26,7 +26,7 @@ class AddCustomerAndABoat extends JFrame implements ActionListener
 		logoLabel.setForeground(Color.red);
 		logoLabel.setFont(new Font("TimesRoman",Font.ITALIC,36));
 		logoLabel.setText("BradShaw Marina");
-		c.add(logoLabel);
+		c.add(logoLabel);//此处是对Logo的设计;
         
 		customerNameText = new JTextField();
 		customerAddressText = new JTextField();
@@ -37,15 +37,15 @@ class AddCustomerAndABoat extends JFrame implements ActionListener
 		centerPanel.add(customerAddressText);
 		centerPanel.add(new JLabel("PhoenNo:",SwingConstants.RIGHT));
 		centerPanel.add(customerPhoneText);
-		c.add(centerPanel);
+		c.add(centerPanel);//中间面板的设置，主要是标签和文本框;
 
-		addButton = new JButton("Add Boat");
-		clearButton = new JButton("Clear");
+		addBoatButton = new JButton("Add Customer");
+		resetButton = new JButton("Reset");
 		closeButton = new JButton("Close");
-		lowerPanel.add(addButton);
-		lowerPanel.add(clearButton);
+		lowerPanel.add(addBoatButton);
+		lowerPanel.add(resetButton);
 		lowerPanel.add(closeButton);
-		c.add(lowerPanel);
+		c.add(lowerPanel);//下方面板的设置;
 
 		addButton.addActionListener(this);
 		clearButton.addActionListener(this);
@@ -71,11 +71,11 @@ class AddCustomerAndABoat extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource()==addButton)
+		if (e.getSource()==addBoatButton)
 		{
 			addCustomer();
 		}
-		if (e.getSource()==clearButton)
+		if (e.getSource()==resetButton)
 		{
 			clearCustomer();
 		}
@@ -103,10 +103,10 @@ class AddCustomerAndABoat extends JFrame implements ActionListener
 		}
 
 		JOptionPane.showMessageDialog(this,"Please Add Boat information for the customer you have just added!");
-		this.setVisible(false);
-		AddBoat frame = new AddBoat(this,aCustomer);
+		AddBoat frame = new AddBoat(this,aCustomer);//转入到AddBoat的框架之中;
+		this.setVisible(false);//并且设置当前的窗口不可显示;
         addCustomerFrame.setSize(320,200);
-		addCustomerFrame.setTitle("Add A Boat");
+		addCustomerFrame.setTitle("Add customer and Boat");
 		addCustomerFrame.setVisible(true);
 
 

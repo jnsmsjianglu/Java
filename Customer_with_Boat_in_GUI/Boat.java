@@ -118,7 +118,7 @@ public class Boat
 		{
 			aCustomer = (Customer)customers.get(i);
 			aBoat = (Boat)boats.get(i);
-			aBoat = assignBoatToCustomer(aCustomer);
+			aBoat.assignBoatToCustomer(aCustomer);
 		}
 	}
 }

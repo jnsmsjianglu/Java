@@ -97,19 +97,10 @@ class AddCustomer extends JFrame implements ActionListener
 		}
 		else
 		{
-			customers.add(customerName,customerAddress,customerPhoneNo);
+			aCustomer = new Customer(customerName,customerAddress,customerPhoneNo);
 			JOptionPane.showMessageDialog(this,"Customer Added!");
 			clearCustomer();
 		}
-
-		JOptionPane.showMessageDialog(this,"Please Add Boat information for the customer you have just added!");
-		this.setVisible(false);
-		AddBoat frame = new AddBoat(this);
-        addCustomerFrame.setSize(320,200);
-		addCustomerFrame.setTitle("Add A Customer");
-		addCustomerFrame.setVisible(true);
-
-
 	}
 
 	public void clearCustomer()

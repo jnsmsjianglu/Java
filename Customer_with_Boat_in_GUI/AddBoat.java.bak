@@ -8,7 +8,7 @@ public class AddBoat extends JFrame implements ActionListener
 	{
 		AddBoat frame = new AddBoat();
 	}*/
-	AddCustomer parentMenu;
+	AddCustomerAndABoat parentMenu;
 	JPanel boatPanel;
 	CardLayout  boatLayout;
 	JTextField manufacturerText,boatLengthText,yearText,stateRegistrationText;
@@ -16,11 +16,11 @@ public class AddBoat extends JFrame implements ActionListener
 	JRadioButton sailboatRadioButton,powerboatRadioButton;
 	JRadioButton noEnginesRadioButton,inboardEnginesButton,outboardEnginesButton;
 	JRadioButton gasRadioButton,dieselRadioButton;
-	JButton addButton,clearButton,closeButton;
+	JButton addCustomerAndBoatButton,clearButton,closeButton;
 	
-	public AddBoat(AddCustomer menu,Customer newCustomer)
+	public AddBoat(AddCustomerAndAboat menu,Customer newCustomer)
 	{   
-		parentMenu = menu
+		parentMenu = menu；
 		Container c = this.getContentPane();
 		c.setLayout(new GridLayout(5,1));
 		JPanel upperPanel = new JPanel(new GridLayout(2,4));
@@ -29,15 +29,15 @@ public class AddBoat extends JFrame implements ActionListener
 		JPanel powerboatPanel = new JPanel(new FlowLayout());//new ;
 		JPanel lowerPanel = new JPanel(new FlowLayout());
 
-		boatLayout = new CardLayout();
-		boatPanel = new JPanel();
+		boatLayout = new CardLayout();//卡片式反面版面;
+		boatPanel = new JPanel(); //定义新的boatPanel;
 		boatPanel.setLayout(boatLayout);
 
 		JLabel logoLabel = new JLabel(" ",SwingConstants.CENTER);
 		logoLabel.setForeground(Color.red);
 		logoLabel.setFont(new Font("TimesRoman",Font.ITALIC,36));
 		logoLabel.setText("BradShaw Marina");
-		c.add(logoLabel);
+		c.add(logoLabel);//第一行;
 
 		manufacturerText = new JTextField(15);
 		boatLengthText = new JTextField(4);
@@ -51,23 +51,23 @@ public class AddBoat extends JFrame implements ActionListener
 		upperPanel.add(yearText);
 		upperPanel.add(new JLabel("State Registration No:",SwingConstants.RIGHT));
 		upperPanel.add(stateRegistrationText);
-		c.add(upperPanel);
+		c.add(upperPanel);//第二行;
 
-        sailboatRadioButton = new JRadioButton("Sailboat",true);
-		powerboatRadioButton = new JRadioButton("Powerboat",false);
-		ButtonGroup typeOfBoat = new ButtonGroup();
+        sailboatRadioButton = new JRadioButton("Sailboat",true);//单选按钮;选择帆船;
+		powerboatRadioButton = new JRadioButton("Powerboat",false);//单选按钮;选择汽艇；
+		ButtonGroup typeOfBoat = new ButtonGroup();//新建对象;
 		typeOfBoat.add(sailboatRadioButton);
-		typeOfBoat.add(powerboatRadioButton);
+		typeOfBoat.add(powerboatRadioButton);//将此单选按钮设置为一组按钮;
 
 		centerPanel.add(sailboatRadioButton);
 		centerPanel.add(powerboatRadioButton);
-		c.add(centerPanel);
+		c.add(centerPanel);//第三行;
 
 		JPanel leftSailboatPanel = new JPanel(new GridLayout(2,2));
 		JPanel rightSailboatPanel = new JPanel(new FlowLayout());
 		numberOfSailsText = new JTextField(4);
 		keelDepthText = new JTextField(4);
-		noEnginesRadioButton = new JRadioButton("NoEngines",true);
+		noEnginesRadioButton = new JRadioButton("NoEngines",true);//默认选择该按钮;
 		inboardEnginesButton = new JRadioButton("Inboard",false);
 		outboardEnginesButton = new JRadioButton("Outboard",false);
 		ButtonGroup sailboatEngineGroup = new ButtonGroup();
@@ -98,21 +98,22 @@ public class AddBoat extends JFrame implements ActionListener
 		powerboatPanel.add(dieselRadioButton);
 		boatPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		boatPanel.add(powerboatPanel,"powerboat");
-		c.add(boatPanel);
+		
+		c.add(boatPanel);//第四行;
 
-		addButton = new JButton("Add");
+		addButton = new JButton("Add Customer and Boat");
 		clearButton = new JButton("Clear");
 		closeButton = new JButton("Close");
-		lowerPanel.add(addButton);
+		lowerPanel.add(addCustomerAndBoatButton);
 		lowerPanel.add(clearButton);
 		lowerPanel.add(closeButton);
-		c.add(lowerPanel);
+		c.add(lowerPanel);//第五行;
       
 		this.setSize(540,350);
 		this.setTitle("Add Boat");
 		this.setVisible(true);
 
-		addButton.addActionListener(this);
+		addCustomerAndBoatButton.addActionListener(this);
 		clearButton.addActionListener(this);
 		closeButton.addActionListener(this);
 		sailboatRadioButton.addActionListener(this);
@@ -134,7 +135,7 @@ public class AddBoat extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource() == addButton)
+		if (e.getSource() == addCustomerAndBoatButton)
 		{
 			addBoat();		
 		}
@@ -148,11 +149,11 @@ public class AddBoat extends JFrame implements ActionListener
 		}
 		if (e.getSource() == sailboatRadioButton)
 		{
-			boatLayout.first(boatPanel);
+			boatLayout.first(boatPanel);//显示卡片的第一面;
 		}
 		if (e.getSource() == powerboatRadioButton)
 		{
-			boatLayout.last(boatPanel);
+			boatLayout.last(boatPanel);//显示卡片的另一面;
 		}
 	}
 
@@ -161,7 +162,7 @@ public class AddBoat extends JFrame implements ActionListener
 	{
 		try
 		{
-			double boatLength = Double.parseDouble(boatLengthText.getText());
+			double boatLength = Double.parseDouble(boatLengthText.getText());//格式读取的转换;在JTextField中均是以String形式存储数据的;
 			int year = Integer.parseInt(yearText.getText());
 			String manufacturer = manufacturerText.getText();
 			String stateRegistrationNo = stateRegistrationText.getText();
@@ -209,6 +210,7 @@ public class AddBoat extends JFrame implements ActionListener
             SailBoat aSailBoat = new SailBoat(aStateRegistrationNo,aBoatLength,aManufacturer,aYear,keelDepth,numberOfSails,motorType);
 			Boat.assignBoatToCustomer(newCustomer);
 			JOptionPane.showMessageDialog(this,"Sailboat Added");
+			Boat.assignBoatToCustomer(this);
 			clearForm();
 		}     
 		catch (NumberFormatException e)
@@ -232,7 +234,9 @@ public class AddBoat extends JFrame implements ActionListener
 				fuelType = "diesel";
 			}
 			PowerBoat aPowerBoat = new PowerBoat(aStateRegistrationNo,aBoatLength,aManufacturer,aYear,numberOfengines,fuelType);
+			Boat.assignBoatToCustomer(newCustomer);
 			JOptionPane.showMessageDialog(this,"Powerboat is Added!");
+			Boat.assignBoatToCustomer(this);//---------------------------------------------;
 			clearForm();
 		}
 		catch (NumberFormatException e)
